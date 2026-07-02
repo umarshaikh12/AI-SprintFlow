@@ -9,43 +9,43 @@ function Login() {
 
   const navigate = useNavigate();
 
-const handleLogin = async (e) => {
-  e.preventDefault();
+  const handleLogin = async (e) => {
+    e.preventDefault();
 
-  try {
+    try {
 
-    const response = await loginUser({
-      email,
-      password,
-    });
+      const response = await loginUser({
+        email,
+        password,
+      });
 
-    console.log(response.data);
+      console.log(response.data);
 
-    // Save JWT Token
-    localStorage.setItem(
-      "token",
-      response.data.token
-    );
+      // Save JWT Token
+      localStorage.setItem(
+        "token",
+        response.data.token
+      );
 
-    // Save User
-    localStorage.setItem(
-      "user",
-      JSON.stringify(response.data.user)
-    );
+      // Save User
+      localStorage.setItem(
+        "user",
+        JSON.stringify(response.data.user)
+      );
 
-    alert("Login Successful 🚀");
+      alert("Login Successful 🚀");
 
-    navigate("/dashboard");
+      navigate("/dashboard");
 
-  } catch (error) {
+    } catch (error) {
 
-    alert(
-      error.response?.data?.message ||
-      "Login Failed"
-    );
+      alert(
+        error.response?.data?.message ||
+        "Login Failed"
+      );
 
-  }
-};
+    }
+  };
 
   return (
     <div className="min-h-screen bg-slate-950 flex">
@@ -114,9 +114,12 @@ const handleLogin = async (e) => {
             Login
           </button>
 
-          <p className="text-center text-slate-400 mt-8">
+          <p className="mt-8 text-center text-slate-400">
             Don't have an account?{" "}
-            <span className="text-violet-400 cursor-pointer hover:underline">
+            <span
+              onClick={() => navigate("/register")}
+              className="cursor-pointer text-violet-400 hover:underline"
+            >
               Register
             </span>
           </p>

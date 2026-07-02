@@ -3,6 +3,7 @@ import {
   createProject,
   updateProject,
 } from "../../api/projectApi";
+import toast from "react-hot-toast";
 
 function ProjectModal({ onClose, onProjectCreated, project }) {
   const [title, setTitle] = useState("");
@@ -24,16 +25,20 @@ const handleSubmit = async () => {
     if (project) {
 
       await updateProject(project._id, {
-        title,
-        description,
-      });
+          title,
+          description,
+        });
+
+        toast.success("Project updated successfully!");
 
     } else {
 
       await createProject({
-        title,
-        description,
-      });
+          title,
+          description,
+        });
+
+        toast.success("Project created successfully!");
 
     }
 
@@ -43,7 +48,7 @@ const handleSubmit = async () => {
   } catch (error) {
 
     console.log(error);
-    alert("Something went wrong!");
+    toast.error("Something went wrong!");
 
   }
 };

@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 function ProjectCard({ project, onEdit, onDelete }) {
+  const navigate = useNavigate();
+
   return (
     <div className="rounded-2xl border border-slate-700 bg-[#1E293B] p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
 
@@ -20,20 +24,23 @@ function ProjectCard({ project, onEdit, onDelete }) {
 
       <div className="mt-6 flex gap-3">
 
-        <button className="rounded-lg bg-violet-600 px-4 py-2 text-sm font-medium text-white hover:bg-violet-500">
+        <button
+          onClick={() => navigate(`/projects/${project._id}`)}
+          className="rounded-lg bg-violet-600 px-4 py-2 text-sm font-medium text-white hover:bg-violet-500 transition"
+        >
           View Project
         </button>
 
         <button
           onClick={() => onEdit(project)}
-          className="rounded-lg bg-amber-500 px-4 py-2 text-sm font-medium text-white hover:bg-amber-400"
+          className="rounded-lg bg-amber-500 px-4 py-2 text-sm font-medium text-white hover:bg-amber-400 transition"
         >
           Edit
         </button>
 
         <button
           onClick={() => onDelete(project._id)}
-          className="rounded-lg bg-red-500 px-4 py-2 text-sm font-medium text-white hover:bg-red-400"
+          className="rounded-lg bg-red-500 px-4 py-2 text-sm font-medium text-white hover:bg-red-400 transition"
         >
           Delete
         </button>

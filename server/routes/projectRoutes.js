@@ -2,6 +2,7 @@ import express from "express";
 import {
   createProject,
   getProjects,
+  getProjectById,
   updateProject,
   deleteProject,
 } from "../controllers/projectController.js";
@@ -19,5 +20,7 @@ router.put("/:id", updateProject);
   
 // Delete Project
 router.delete("/:id", deleteProject);
+
+router.get("/:id", getProjectById);
 
 export default router;
