@@ -298,7 +298,7 @@ Application Updated
 MCA Graduate | Full Stack Developer
 
 - GitHub: https://github.com/umarshaikh12
-- LinkedIn: *(Add your LinkedIn profile)*
+- LinkedIn: https://www.linkedin.com/in/umar-shaikh-bb4a34229/
 
 ---
 
